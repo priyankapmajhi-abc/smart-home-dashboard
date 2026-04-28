@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Home Dashboard</title>
+
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
+    margin: 0;
+  }
+
+  h1 {
+    background: #22c55e;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px;
+  }
+
+  .card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .title {
+    font-size: 18px;
+    opacity: 0.7;
+  }
+
+  .value {
+    font-size: 28px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .green { color: #22c55e; }
+  .red { color: #ef4444; }
+  .yellow { color: #facc15; }
+
+  button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #22c55e;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #16a34a;
+  }
+</style>
+</head>
+
+<body>
+
+<h1> Smart Home Dashboard</h1>
+
+<div class="container">
+
+  <div class="card">
+    <div class="title"> Temperature</div>
+    <div id="temp" class="value">28°C</div>
+  </div>
+
+  <div class="card">
+    <div class="title"> Light Status</div>
+    <div id="light" class="value green">ON</div>
+    <button onclick="toggleLight()">Toggle</button>
+  </div>
+
+  <div class="card">
+    <div class="title"> Motion</div>
+    <div id="motion" class="value">No Motion</div>
+  </div>
+
+  <div class="card">
+    <div class="title"> Humidity</div>
+    <div id="humidity" class="value">60%</div>
+  </div>
+
+  <div class="card">
+    <div class="title"> Door Status</div>
+    <div id="door" class="value green">Locked</div>
+  </div>
+
+</div>
+
+<script>
+  let lightOn = true;
+
+  function toggleLight() {
+    lightOn = !lightOn;
+
+    let light = document.getElementById("light");
+
+    if (lightOn) {
+      light.innerText = "ON";
+      light.className = "value green";
+    } else {
+      light.innerText = "OFF";
+      light.className = "value red";
+    }
+  }
+
+  function updateDashboard() {
+
+    // Temperature (25–35)
+    let temp = Math.floor(Math.random() * 10) + 25;
+    document.getElementById("temp").innerText = temp + "°C";
+
+    // Motion
+    let motion = Math.random() > 0.5;
+    let motionText = document.getElementById("motion");
+
+    if (motion) {
+      motionText.innerText = "Motion Detected";
+      motionText.className = "value red";
+    } else {
+      motionText.innerText = "No Motion";
+      motionText.className = "value green";
+    }
+
+    // Humidity (40–80%)
+    let humidity = Math.floor(Math.random() * 40) + 40;
+    document.getElementById("humidity").innerText = humidity + "%";
+
+    // Door Status
+    let doorLocked = Math.random() > 0.3;
+    let door = document.getElementById("door");
+
+    if (doorLocked) {
+      door.innerText = "Locked";
+      door.className = "value green";
+    } else {
+      door.innerText = "Unlocked";
+      door.className = "value yellow";
+    }
+  }
+
+  // Run every 3 seconds
+  setInterval(updateDashboard, 3000);
+</script>
+
+</body>
+</html>
