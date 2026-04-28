@@ -1,38 +1,43 @@
-#  IoT Home Automation System
+#  Smart Home Dashboard
 
-A smart home automation system built using Arduino and sensors to control and monitor home devices.
+A web-based dashboard to monitor and simulate smart home devices in real time.
 
 ##  Features
 
-* Automatic control of home appliances
-* Motion detection-based automation
-* Real-time monitoring using sensors
-* Energy-efficient operation
+* Displays temperature, humidity, motion, and door status
+* Real-time simulated updates using JavaScript
+* Interactive control (toggle light ON/OFF)
+* Clean card-based responsive UI
 
 ##  Tech Used
 
-* Arduino
-* Sensors (motion, temperature, etc.)
-* Microcontroller programming
+* HTML
+* CSS
+* JavaScript
 
-##  Components Used
+##  How to Run
 
-* Arduino board
-* Motion sensor
-* Relay module / LED
-* Jumper wires
+```bash
+Open index.html in your browser
+```
 
 ##  How It Works
 
-The system reads input from sensors and controls devices accordingly. For example, when motion is detected, the system turns on the light automatically.
-
+The dashboard simulates sensor data using JavaScript and updates values every few seconds. User interactions like toggling the light are handled using event-based functions.
 
 ##  Learning Outcome
 
-* Understanding IoT systems
-* Working with sensors and microcontrollers
-* Writing embedded logic
-* Connecting hardware with software
+* DOM manipulation
+* Event handling
+* Real-time UI updates
+* Understanding frontend representation of IoT systems
+
+##  Future Improvements
+
+* Connect with real IoT devices
+* Add backend integration
+* Display analytics and charts
+
 
 ##  Future Improvements
 
